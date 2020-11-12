@@ -1,5 +1,5 @@
 # Command line for Harbor
-##How to build?
+## How to build?
 This CLI depends on `harbor-client-java` - following instruction to `mvn install` in [Harbor Java Client](https://github.com/hinyinlam-pivotal/harbor-client-java)
 
 Then `./mvnw clean package`

@@ -4,15 +4,15 @@ This CLI depends on `harbor-client-java` - following instruction to `mvn install
 
 Then `./mvnw clean package`
 
-##How to use
-###Login:
+## How to use
+### Login:
 `java -jar target/harbor-cli-0.0.1-SNAPSHOT.jar auth login --username <username> --password <password> --api <https_api>`
 
 Example:
 
 `java -jar target/harbor-cli-0.0.1-SNAPSHOT.jar auth login --username myuser --password ASafePassword --api https://demo.goharbor.io/api/v2.0`
 
-###Project list:
+### Project list:
 `java -jar target/harbor-cli-0.0.1-SNAPSHOT.jar project list`
 
 Note: remember to `auth login` first.

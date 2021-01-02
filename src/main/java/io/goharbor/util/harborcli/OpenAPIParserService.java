@@ -2,9 +2,13 @@ package io.goharbor.util.harborcli;
 
 import com.google.common.reflect.ClassPath;
 import lombok.Getter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ReflectionUtils;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -15,6 +19,8 @@ import java.util.*;
 public class OpenAPIParserService {
 
     private static final LocalVariableTableParameterNameDiscoverer discoverer = new LocalVariableTableParameterNameDiscoverer();
+
+    Logger logger = LoggerFactory.getLogger(OpenAPIParserService.class);
 
     public OpenAPIParserService() throws IOException {
         apiMethods = retreiveAllAPIMethods("io.goharbor.client.openapi.apis");

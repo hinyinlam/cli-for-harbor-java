@@ -12,10 +12,10 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
 import java.util.Set;
 
-@SpringBootTest
+//@SpringBootTest
 class HarborCliApplicationTests {
 
-    @Test
+    //@Test
     void getApiCallRequestParameters(){
 
     }

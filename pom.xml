@@ -88,4 +88,12 @@
         </plugins>
     </build>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>build-artifactory-releases</name>
+            <url>https://build-artifactory.eng.vmware.com/harbor-client-java-maven-local</url>
+        </repository>
+    </repositories>
+
 </project>

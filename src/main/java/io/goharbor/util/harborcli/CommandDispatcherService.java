@@ -2,6 +2,7 @@ package io.goharbor.util.harborcli;
 
 import io.goharbor.client.openapi.ApiClient;
 import io.goharbor.client.openapi.apis.ProjectApi;
+import io.goharbor.util.harborcli.auth.AuthHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import picocli.CommandLine;
@@ -18,6 +19,9 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
     @Autowired
     OpenAPIParserService apiParser;
 
+    @Autowired
+    AuthHelper authHelper;
+
     @Override
     public int execute(CommandLine.ParseResult parseResult) throws CommandLine.ExecutionException, CommandLine.ParameterException {
         Integer helpExitCode = CommandLine.executeHelpRequest(parseResult);
@@ -25,13 +29,18 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
 
         //TODO: Move this to another place -- Implement login command
         ApiClient apiClient = new ApiClient();
-        apiClient.setUsername(System.getenv("HARBOR_USERNAME"));
-        apiClient.setPassword(System.getenv("HARBOR_PASSWORD"));
-        apiClient.setBasePath(System.getenv("HARBOR_BASE_URL"));
+//        apiClient.setUsername(System.getenv("HARBOR_USERNAME"));
+//        apiClient.setPassword(System.getenv("HARBOR_PASSWORD"));
+//        apiClient.setBasePath(System.getenv("HARBOR_BASE_URL"));
         //EOL
 
         CommandLine.ParseResult api = parseResult.subcommands().get(0);
         String apiName = api.commandSpec().name();
+        if(apiName.equals("login")){
+            authHelper.login(api);
+            return 0;
+        }
+
         String actionName = api.subcommands().get(0).commandSpec().name();
 
         Map<String, List<Method>> apiMethodsMap = apiParser.getApiMethods();

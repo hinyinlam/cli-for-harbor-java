@@ -5,12 +5,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.DefaultParameterNameDiscoverer;
 import picocli.CommandLine;
 import picocli.CommandLine.Model.CommandSpec;
 import picocli.CommandLine.Model.OptionSpec;
 import picocli.CommandLine.Model.UsageMessageSpec;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,7 +40,6 @@ public class HarborCliApplication {
                 CommandSpec topLevelCmdSpec = CommandSpec.create()
                         .name(topLevelCmdName)
                         .mixinStandardHelpOptions(true);
-                //topLevelCmdSpec.usageMessage().description(apiName);
 
                 List<Method> methodsInThisApi = apiMethodsMap.get(apiName);
                 Map<String, CommandSpec> subcmdSpecMap = addSubcmdSpec(topLevelCmdName, methodsInThisApi);
@@ -72,14 +73,34 @@ public class HarborCliApplication {
         };
     }
 
+    private OptionSpec getSubcmdOptionSpec(Class<?> paramType, String paramName){
+        OptionSpec.Builder specBuilder = OptionSpec.builder("--"+ paramName);
+        if(paramName.equals("xRequestId") || paramName.equals("page") || paramName.equals("pageSize")) {
+            return specBuilder.required(false).description(paramName).arity("0..1").defaultValue(null).type(paramType).build();
+        }
+        if(!paramType.getPackageName().equals("java.lang")){ //non-java lang types:
+            return specBuilder.required(false).description("Complex kind - Use .yaml file here").arity("0..1").type(String.class).build();
+        }
+        return specBuilder.required(false).description(paramName).arity("0..1").type(paramType).build();
+    }
+
     private Map<String, CommandSpec> addSubcmdSpec(String parentCmdName, List<Method> ms) {
         Map<String, CommandSpec> allSubCmds = new HashMap<>();
         for(Method m: ms){
             String subCmdName = openAPIParserService.getCmdExternalName(parentCmdName, m);
             CommandSpec methodSubcmd = CommandSpec.create()
-                    .name(subCmdName);
-            //TODO: Add parameters to the command help and add --parm1=abc --parm2=cde things to this place
-            //methodSubcmd.usageMessage();//.description("UsageMessage for subcommand");
+                    .name(subCmdName)
+                    .mixinStandardHelpOptions(true);
+
+            Parameter[] params = m.getParameters();
+            String[] paramNames = new DefaultParameterNameDiscoverer().getParameterNames(m);
+            for(int i=0; i< params.length; i++){
+                Class<?> paramType = params[i].getType();
+                String paramName = paramNames[i];
+                OptionSpec optionSpec = getSubcmdOptionSpec(paramType,paramName);
+                methodSubcmd = methodSubcmd.addOption(optionSpec);
+            }
+
             allSubCmds.put(subCmdName,methodSubcmd);
         }
         return allSubCmds;

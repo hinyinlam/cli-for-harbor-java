@@ -71,7 +71,7 @@ public class AuthHelper {
         logger.debug("Logout by deleting locally saved credential");
     }
 
-    public boolean login(CommandLine.ParseResult loginCommand){
+    public int login(CommandLine.ParseResult loginCommand){
         //Set<OptionSpec> options = loginCommand.matchedOptionsSet();
         String username = loginCommand.matchedOption("username").getValue();
         String password = loginCommand.matchedOption("password").getValue();
@@ -81,18 +81,18 @@ public class AuthHelper {
             api = correctApiURL(api);
         } catch (MalformedURLException e) {
             e.printStackTrace();
-            return false;
+            return -1;
         }
 
         System.out.println("Try logging in using\nUsername:" + username + "\nPassword: <hidden> " + "\napi: "+ api);
         //Make an API request to valid if the credentials are correct
         try {
             tryLogin(username, password, api);
-            return true;
+            return 0;
         }catch (ApiException exception){
             exception.printStackTrace();
         }
-        return false;
+        return -1;
     }
 
     private void tryLogin(String username, String password, String api) throws ApiException{

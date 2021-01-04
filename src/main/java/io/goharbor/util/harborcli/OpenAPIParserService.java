@@ -6,9 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
 import org.springframework.stereotype.Service;
-import org.springframework.util.ReflectionUtils;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -81,5 +79,9 @@ public class OpenAPIParserService {
             System.out.println(ps[j].getType().getName() + " " + pNames[j]);
         }
         return nameTypeMap;
+    }
+
+    public List<Method> getMethodsByApiName(String apiKey) {
+        return this.apiMethods.get(apiKey);
     }
 }

@@ -4,18 +4,30 @@ This CLI depends on `harbor-client-java` - following instruction to `mvn install
 
 Then `./mvnw clean package`
 
+### Or you can download the cli jar file directly in github:
+[Github release page](https://github.com/hinyinlam-pivotal/harbor-cli/releases)
+
 ## How to use
+
+### Alias:
+
+`alias harbor="java -jar harbor-cli-0.0.1-SNAPSHOT.jar"`
+
+then you can uses `harbor` directly.
+
+In future, will compile directly to OS dependent native image so you *will* not need aliasing.
+
 ### Login:
-`java -jar target/harbor-cli-0.0.1-SNAPSHOT.jar auth login --username <username> --password <password> --api <https_api>`
+`harbor login --username <username> --password <password> --api <https_api>`
 
 Example:
 
-`java -jar target/harbor-cli-0.0.1-SNAPSHOT.jar auth login --username myuser --password ASafePassword --api https://demo.goharbor.io/api/v2.0`
+`harbor login --username myuser --password ASafePassword --api demo.goharbor.io`
 
 ### Project list:
-`java -jar target/harbor-cli-0.0.1-SNAPSHOT.jar project list`
+`harbor project list`
 
-Note: remember to `auth login` first.
+Note: remember to `harbor login` first.
 
 # ToDo:
 Yes, I'm aware the code isn't good structured, nearly no functions.

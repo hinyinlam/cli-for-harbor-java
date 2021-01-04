@@ -8,6 +8,8 @@ import io.goharbor.client.openapi.apis.ProjectApi;
 import io.goharbor.client.openapi.models.Project;
 import io.goharbor.util.harborcli.config.BasicAuth;
 import lombok.Getter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import picocli.CommandLine;
 
@@ -20,6 +22,8 @@ import java.util.List;
 
 @Service
 public class AuthHelper {
+
+    Logger logger = LoggerFactory.getLogger(AuthHelper.class);
 
     @Getter
     private ApiClient apiClient;
@@ -35,7 +39,7 @@ public class AuthHelper {
         try {
             harborAuthConfigFile = getHarborAuthConfig();
             if(harborAuthConfigFile.length()==0l){
-                System.out.println("No existing authentication found, please use `harbor login` command first");
+                logger.debug("Harbor auth config file is empty");
                 return null;
             }
             BasicAuth basicAuth = mapper.readValue(harborAuthConfigFile,BasicAuth.class);
@@ -60,6 +64,11 @@ public class AuthHelper {
         }
         URL changedURL = new URL(api); // should throw exception if our "fixes" on URL is invalid
         return api;
+    }
+
+    public void logout(){
+        deleteHarborAuthConfig();
+        logger.debug("Logout by deleting locally saved credential");
     }
 
     public boolean login(CommandLine.ParseResult loginCommand){
@@ -121,6 +130,13 @@ public class AuthHelper {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void deleteHarborAuthConfig(){
+        File basicAuthConfig = new File(harborConfigDir,"basicAuth.json");
+        if(basicAuthConfig.exists()){
+            basicAuthConfig.delete();
         }
     }
 

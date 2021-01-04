@@ -65,6 +65,9 @@ public class HarborCliApplication {
             cmd.setExecutionStrategy(cds);
 
             int exitCode = cmd.execute(args);
+            if(exitCode==-2){
+                spec.commandLine().usage(System.err);
+            }
             System.exit(exitCode);
         };
     }
@@ -96,6 +99,12 @@ public class HarborCliApplication {
                 .addOption(OptionSpec.builder("-a", "--api").paramLabel("API_ENDPOINT").required(true).arity("1").description("API endpoint to Harbor").type(String.class).build())
                 .usageMessage(new UsageMessageSpec().description("Authentication with Harbor"));
         mainCommands.add(loginSpec);
+
+        CommandSpec logoutSpec = CommandSpec.create()
+                .name("logout")
+                .usageMessage(new UsageMessageSpec().description("Logout by deleting locally saved auth config"));
+        mainCommands.add(logoutSpec);
+
         return mainCommands;
     }
 

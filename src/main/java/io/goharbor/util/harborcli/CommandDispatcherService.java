@@ -3,6 +3,8 @@ package io.goharbor.util.harborcli;
 import io.goharbor.client.openapi.ApiClient;
 import io.goharbor.client.openapi.apis.ProjectApi;
 import io.goharbor.util.harborcli.auth.AuthHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import picocli.CommandLine;
@@ -16,6 +18,8 @@ import java.util.Map;
 @Service
 public class CommandDispatcherService implements CommandLine.IExecutionStrategy {
 
+    Logger logger = LoggerFactory.getLogger(CommandDispatcherService.class);
+
     @Autowired
     OpenAPIParserService apiParser;
 
@@ -27,18 +31,26 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
         Integer helpExitCode = CommandLine.executeHelpRequest(parseResult);
         if (helpExitCode != null) { return helpExitCode; }
 
-        //TODO: Move this to another place -- Implement login command
-        ApiClient apiClient = new ApiClient();
-//        apiClient.setUsername(System.getenv("HARBOR_USERNAME"));
-//        apiClient.setPassword(System.getenv("HARBOR_PASSWORD"));
-//        apiClient.setBasePath(System.getenv("HARBOR_BASE_URL"));
-        //EOL
+        List<CommandLine.ParseResult> subcommands = parseResult.subcommands();
+        if(subcommands.size()==0){ //invoke `harbor` cmd without subcommand
+            return -2;
+        }
 
         CommandLine.ParseResult api = parseResult.subcommands().get(0);
         String apiName = api.commandSpec().name();
         if(apiName.equals("login")){
             authHelper.login(api);
             return 0;
+        }
+        if(apiName.equals("logout")){
+            authHelper.logout();
+            return 0;
+        }
+
+        ApiClient apiClient = authHelper.getApiClient();
+        if(apiClient==null){
+            System.out.println("Please login using `harbor login` command");
+            return -1;
         }
 
         String actionName = api.subcommands().get(0).commandSpec().name();
@@ -51,7 +63,7 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
         for(Method method : methods){
             String extName = apiParser.getCmdExternalName(apiName,method);
             if(extName.equals(actionName)){
-                System.out.println("Match API: " + apiKey + " method: " + method.getName());
+                logger.debug("Calling API " + apiKey + " method: " + method.getName());
                 try {
                     Class classRef = Class.forName("io.goharbor.client.openapi.apis."+ apiKey);
                     Constructor constructor = classRef.getConstructor(ApiClient.class);

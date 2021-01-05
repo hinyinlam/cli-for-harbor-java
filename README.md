@@ -1,14 +1,9 @@
 # Unofficial command line for Harbor
-
-## How to build?
-This CLI depends on `harbor-client-java` - following instruction to `mvn install` in [Harbor Java Client](https://github.com/hinyinlam-pivotal/harbor-client-java)
-
-Then `./mvnw clean package`
-
-### Or you can download the cli jar file directly in github:
-[Github release page](https://github.com/hinyinlam-pivotal/harbor-cli/releases)
+This is not yet an offical project for [Harbor open source Registry](https://goharbor.io/)
 
 ## How to use
+Download the cli jar file directly in github:
+[Github release page](https://github.com/hinyinlam-pivotal/harbor-cli/releases)
 
 ### Alias:
 
@@ -27,16 +22,34 @@ Example:
 
 <p align="center"><img src="/doc/login-demo.gif?raw=true"/></p>
 
-### Project list:
-`harbor project list`
+### Project:
+`harbor project --help`
 
-Note: remember to `harbor login` first.
+<p align="center"><img src="/doc/project-demo.gif?raw=true"/></p>
+
+### Repo:
+`harbor repository --help`
+
+<p align="center"><img src="/doc/repo-demo.gif?raw=true"/></p>
+
+### Artifact and Scanning:
+`harbor artifact --help`
+
+<p align="center"><img src="/doc/repo-demo.gif?raw=true"/></p>
 
 # ToDo:
-Yes, I'm aware the code isn't good structured, nearly no functions.
-But this is an MVP which allows anyone to use command line to interact with Harbor!
+1. Package as a native image in various OS and add back tons of sub-command
 
-Next: Package as a native image in various OS and add back tons of sub-command
+2. More options for output
+
+3. Output examples for .JSON / .YAML for complex type
+
+Please feel free to open issue for feature requests.
+
+## How to build?
+This CLI depends on `harbor-client-java` - following instruction to `mvn install` in [Harbor Java Client](https://github.com/hinyinlam-pivotal/harbor-client-java)
+
+Then `./mvnw clean package`
 
 ### Reference Documentation
 * [Official Harbor](https://goharbor.io/)

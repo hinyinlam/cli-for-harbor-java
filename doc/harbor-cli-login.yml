@@ -1,0 +1,163 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: /bin/zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /private/tmp/demo
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 157
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 41
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: window
+    title: Harbor CLI Demo - Login
+    style: []
+      #border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 960
+    content: "\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a\e]1337;ShellIntegrationVersion=11;shell=zsh\a"
+  - delay: 23
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                            \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a"
+  - delay: 18
+    content: "\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[123C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[128D\e[?1h\e=\e[?2004h"
+  - delay: 5971
+    content: "\e[7malias harbor=\"java -jar $HARBOR_BIN/target/harbor-cli-0.0.1-SNAPSHOT.jar\"\e[27m"
+  - delay: 375
+    content: "\e[73D\e[27ma\e[27ml\e[27mi\e[27ma\e[27ms\e[27m \e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m=\e[27m\"\e[27mj\e[27ma\e[27mv\e[27ma\e[27m \e[27m-\e[27mj\e[27ma\e[27mr\e[27m \e[27m$\e[27mH\e[27mA\e[27mR\e[27mB\e[27mO\e[27mR\e[27m_\e[27mB\e[27mI\e[27mN\e[27m/\e[27mt\e[27ma\e[27mr\e[27mg\e[27me\e[27mt\e[27m/\e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m-\e[27mc\e[27ml\e[27mi\e[27m-\e[27m0\e[27m.\e[27m0\e[27m.\e[27m1\e[27m-\e[27mS\e[27mN\e[27mA\e[27mP\e[27mS\e[27mH\e[27mO\e[27mT\e[27m.\e[27mj\e[27ma\e[27mr\e[27m\"\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\aalias harbor=\"java -jar $HARBOR_BIN/target/harbor-cli-0.0.1-SNAPSHOT.jar\"\e[K\e[?12l\e[?25h\r\r\n\e]2;alias harbor=\"java -jar $HARBOR_BIN/target/harbor-cli-0.0.1-SNAPSHOT.jar\"\a\e]1;alias\a\e]133;C;\a\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                            \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 8
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[123C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[128D\e[?1h\e=\e[?2004h"
+  - delay: 7359
+    content: "\e[7m#Let's check if harbor runs\e[27m"
+  - delay: 257
+    content: "\e[27D\e[27m#\e[27mL\e[27me\e[27mt\e[27m'\e[27ms\e[27m \e[27mc\e[27mh\e[27me\e[27mc\e[27mk\e[27m \e[27mi\e[27mf\e[27m \e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m \e[27mr\e[27mu\e[27mn\e[27ms\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\a#Let's check if harbor runs\e[K\e[?12l\e[?25h\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                            \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;C;\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 8
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[123C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[128D\e[?1h\e=\e[?2004h"
+  - delay: 3162
+    content: "\e[7mharbor --help\e[27m"
+  - delay: 380
+    content: "\e[13D\e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m \e[27m-\e[27m-\e[27mh\e[27me\e[27ml\e[27mp\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\aharbor --help\e[K\e[?12l\e[?25h\r\r\n\e]2;java -jar  --help\a\e]1;harbor\a\e]133;C;\a"
+  - delay: 2225
+    content: "Usage: \e[1mharbor\e[21m\e[0m [\e[33m-hV\e[39m\e[0m] [COMMAND]\r\nCLI for Harbor - https://github.com/goharbor/harbor\r\n  \e[33m-h\e[39m\e[0m, \e[33m--help\e[39m\e[0m      Show this help message and exit.\r\n  \e[33m-V\e[39m\e[0m, \e[33m--version\e[39m\e[0m   Print version information and exit.\r\nCommands:\r\n  \e[1mauditlog\e[21m\e[0m\r\n  \e[1mscan\e[21m\e[0m\r\n  \e[1micon\e[21m\e[0m\r\n  \e[1martifact\e[21m\e[0m\r\n  \e[1mpreheat\e[21m\e[0m\r\n  \e[1mproject\e[21m\e[0m\r\n  \e[1mrepository\e[21m\e[0m\r\n  \e[1mlogin\e[21m\e[0m       Authentication with Harbor\r\n  \e[1mlogout\e[21m\e[0m      Logout by deleting locally saved auth config\r\n"
+  - delay: 43
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                            \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 7
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[123C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[128D\e[?1h\e=\e[?2004h"
+  - delay: 5321
+    content: "\e[7m#You can see there are some sub-commands, let's login to an existing Harbor instance\e[27m"
+  - delay: 365
+    content: "\e[84D\e[27m#\e[27mY\e[27mo\e[27mu\e[27m \e[27mc\e[27ma\e[27mn\e[27m \e[27ms\e[27me\e[27me\e[27m \e[27mt\e[27mh\e[27me\e[27mr\e[27me\e[27m \e[27ma\e[27mr\e[27me\e[27m \e[27ms\e[27mo\e[27mm\e[27me\e[27m \e[27ms\e[27mu\e[27mb\e[27m-\e[27mc\e[27mo\e[27mm\e[27mm\e[27ma\e[27mn\e[27md\e[27ms\e[27m,\e[27m \e[27ml\e[27me\e[27mt\e[27m'\e[27ms\e[27m \e[27ml\e[27mo\e[27mg\e[27mi\e[27mn\e[27m \e[27mt\e[27mo\e[27m \e[27ma\e[27mn\e[27m \e[27me\e[27mx\e[27mi\e[27ms\e[27mt\e[27mi\e[27mn\e[27mg\e[27m \e[27mH\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m \e[27mi\e[27mn\e[27ms\e[27mt\e[27ma\e[27mn\e[27mc\e[27me\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\a#You can see there are some sub-commands, let's login to an existing Harbor instance\e[K\e[?12l\e[?25h\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                            \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;C;\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 7
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[123C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[128D\e[?1h\e=\e[?2004h"
+  - delay: 5264
+    content: "\e[7mharbor login --username=$HARBOR_USERNAME --password=$HARBOR_PASSWORD --api=$HARBOR_API\e[27m"
+  - delay: 397
+    content: "\e[86D\e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m \e[27ml\e[27mo\e[27mg\e[27mi\e[27mn\e[27m \e[27m-\e[27m-\e[27mu\e[27ms\e[27me\e[27mr\e[27mn\e[27ma\e[27mm\e[27me\e[27m=\e[27m$\e[27mH\e[27mA\e[27mR\e[27mB\e[27mO\e[27mR\e[27m_\e[27mU\e[27mS\e[27mE\e[27mR\e[27mN\e[27mA\e[27mM\e[27mE\e[27m \e[27m-\e[27m-\e[27mp\e[27ma\e[27ms\e[27ms\e[27mw\e[27mo\e[27mr\e[27md\e[27m=\e[27m$\e[27mH\e[27mA\e[27mR\e[27mB\e[27mO\e[27mR\e[27m_\e[27mP\e[27mA\e[27mS\e[27mS\e[27mW\e[27mO\e[27mR\e[27mD\e[27m \e[27m-\e[27m-\e[27ma\e[27mp\e[27mi\e[27m=\e[27m$\e[27mH\e[27mA\e[27mR\e[27mB\e[27mO\e[27mR\e[27m_\e[27mA\e[27mP\e[27mI\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\aharbor login --username=$HARBOR_USERNAME --password=$HARBOR_PASSWORD --api=$HARBOR_API\e[K\e[?12l\e[?25h\r\r\n\e]2;java -jar  login --username=$HARBOR_USERNAME --password=$HARBOR_PASSWORD \a\e]1;harbor\a\e]133;C;\a"
+  - delay: 1816
+    content: "Try logging in using\r\nUsername:demoaccount\r\nPassword: <hidden> \r\napi: https://harbor.devsecopsify.com/api/v2.0\r\n"
+  - delay: 1428
+    content: "Login success\r\n"
+  - delay: 33
+    content: "Credential Saved to /Users/hlam/.harbor/basicAuth.json\r\n"
+  - delay: 60
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                                                            \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 8
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[116C\e[0m\e[30m\e[43m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m\e[33m\e[0m\e[33m\e[40m\e[43m\e[30m 3s\e[0m\e[30m\e[43m\e[43m\e[30m \e[0m\e[30m\e[43m\e[43m\e[30m\e[0m\e[30m\e[43m\e[43m\e[30m \e[49m\e[33m\e[0m\e[33m\e[43m\e[30m\e[0m\e[30m\e[43m\e[49m\e[39m\e[128D\e[?1h\e=\e[?2004h"
+  - delay: 1794
+    content: "\e[?2004l\r\r\n"

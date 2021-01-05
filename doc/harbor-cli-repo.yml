@@ -1,0 +1,197 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: /bin/zsh
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /private/tmp/demo
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 128
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 35
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: window
+    title: Harbor CLI Demo - Repo
+    style: []
+      #border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 652
+    content: "\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a\e]1337;ShellIntegrationVersion=11;shell=zsh\a"
+  - delay: 21
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a"
+  - delay: 18
+    content: "\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 5320
+    content: "\e[7malias harbor=\"java -jar $HARBOR_BIN/target/harbor-cli-0.0.1-SNAPSHOT.jar\"\e[27m"
+  - delay: 494
+    content: "\e[73D\e[27ma\e[27ml\e[27mi\e[27ma\e[27ms\e[27m \e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m=\e[27m\"\e[27mj\e[27ma\e[27mv\e[27ma\e[27m \e[27m-\e[27mj\e[27ma\e[27mr\e[27m \e[27m$\e[27mH\e[27mA\e[27mR\e[27mB\e[27mO\e[27mR\e[27m_\e[27mB\e[27mI\e[27mN\e[27m/\e[27mt\e[27ma\e[27mr\e[27mg\e[27me\e[27mt\e[27m/\e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m-\e[27mc\e[27ml\e[27mi\e[27m-\e[27m0\e[27m.\e[27m0\e[27m.\e[27m1\e[27m-\e[27mS\e[27mN\e[27mA\e[27mP\e[27mS\e[27mH\e[27mO\e[27mT\e[27m.\e[27mj\e[27ma\e[27mr\e[27m\"\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\aalias harbor=\"java -jar $HARBOR_BIN/target/harbor-cli-0.0.1-SNAPSHOT.jar\"\e[K\e[?12l\e[?25h\r\r\n\e]2;alias harbor=\"java -jar $HARBOR_BIN/target/harbor-cli-0.0.1-SNAPSHOT.jar\"\a\e]1;alias\a\e]133;C;\a\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 7463
+    content: "\e[7m#Next let's check what repo we have in a project:\e[27m"
+  - delay: 386
+    content: "\e[49D\e[27m#\e[27mN\e[27me\e[27mx\e[27mt\e[27m \e[27ml\e[27me\e[27mt\e[27m'\e[27ms\e[27m \e[27mc\e[27mh\e[27me\e[27mc\e[27mk\e[27m \e[27mw\e[27mh\e[27ma\e[27mt\e[27m \e[27mr\e[27me\e[27mp\e[27mo\e[27m \e[27mw\e[27me\e[27m \e[27mh\e[27ma\e[27mv\e[27me\e[27m \e[27mi\e[27mn\e[27m \e[27ma\e[27m \e[27mp\e[27mr\e[27mo\e[27mj\e[27me\e[27mc\e[27mt\e[27m:\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\a#Next let's check what repo we have in a project:\e[K\e[?12l\e[?25h\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;C;\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 10
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 3913
+    content: "\e[7mharbor repository --help\e[27m"
+  - delay: 304
+    content: "\e[24D\e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m \e[27mr\e[27me\e[27mp\e[27mo\e[27ms\e[27mi\e[27mt\e[27mo\e[27mr\e[27my\e[27m \e[27m-\e[27m-\e[27mh\e[27me\e[27ml\e[27mp\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\aharbor repository --help\e[K\e[?12l\e[?25h\r\r\n\e]2;java -jar  repository --help\a\e]1;harbor\a\e]133;C;\a"
+  - delay: 1951
+    content: "Usage: \e[1mharbor repository\e[21m\e[0m [\e[33m-hV\e[39m\e[0m] [COMMAND]\r\n  \e[33m-h\e[39m\e[0m, \e[33m--help\e[39m\e[0m      Show this help message and exit.\r\n  \e[33m-V\e[39m\e[0m, \e[33m--version\e[39m\e[0m   Print version information and exit.\r\nCommands:\r\n  \e[1mget\e[21m\e[0m\r\n  \e[1mupdate\e[21m\e[0m\r\n  \e[1mlist\e[21m\e[0m\r\n  \e[1mdelete\e[21m\e[0m\r\n"
+  - delay: 34
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 7
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 2675
+    content: "\e[7m#Looks like `list` is the subcommand that we want\e[27m"
+  - delay: 231
+    content: "\e[49D\e[27m#\e[27mL\e[27mo\e[27mo\e[27mk\e[27ms\e[27m \e[27ml\e[27mi\e[27mk\e[27me\e[27m \e[27m`\e[27ml\e[27mi\e[27ms\e[27mt\e[27m`\e[27m \e[27mi\e[27ms\e[27m \e[27mt\e[27mh\e[27me\e[27m \e[27ms\e[27mu\e[27mb\e[27mc\e[27mo\e[27mm\e[27mm\e[27ma\e[27mn\e[27md\e[27m \e[27mt\e[27mh\e[27ma\e[27mt\e[27m \e[27mw\e[27me\e[27m \e[27mw\e[27ma\e[27mn\e[27mt\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\a#Looks like `list` is the subcommand that we want\e[K\e[?12l\e[?25h\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;C;\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 8
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 3938
+    content: "\e[7mharbor repository list --help\e[27m"
+  - delay: 233
+    content: "\e[29D\e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m \e[27mr\e[27me\e[27mp\e[27mo\e[27ms\e[27mi\e[27mt\e[27mo\e[27mr\e[27my\e[27m \e[27ml\e[27mi\e[27ms\e[27mt\e[27m \e[27m-\e[27m-\e[27mh\e[27me\e[27ml\e[27mp\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\aharbor repository list --help\e[K\e[?12l\e[?25h\r\r\n\e]2;java -jar  repository list --help\a\e]1;harbor\a\e]133;C;\a"
+  - delay: 1877
+    content: "Usage: \e[1mharbor repository list\e[21m\e[0m [\e[33m-hV\e[39m\e[0m] [\e[33m--page\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]] [\e[33m--pageSize\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]]\r\n                              [\e[33m--projectName\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]] [\e[33m--q\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]]\r\n                              [\e[33m--xRequestId\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]]\r\n  \e[33m-h\e[39m\e[0m, \e[33m--help\e[39m\e[0m                 Show this help message and exit.\r\n      \e[33m--page\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]         page\r\n      \e[33m--pageSize\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]     pageSize\r\n      \e[33m--projectName\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]  projectName\r\n      \e[33m--q\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]            q\r\n  \e[33m-V\e[39m\e[0m, \e[33m--version\e[39m\e[0m              Print version information and exit.\r\n      \e[33m--xRequestId\e[39m\e[0m[=\e[3mPARAM\e[23m\e[0m]   xRequestId\r\n"
+  - delay: 70
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 7
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 2090
+    content: "\e[7m#Let's use an existing project: app-image\e[27m"
+  - delay: 234
+    content: "\e[41D\e[27m#\e[27mL\e[27me\e[27mt\e[27m'\e[27ms\e[27m \e[27mu\e[27ms\e[27me\e[27m \e[27ma\e[27mn\e[27m \e[27me\e[27mx\e[27mi\e[27ms\e[27mt\e[27mi\e[27mn\e[27mg\e[27m \e[27mp\e[27mr\e[27mo\e[27mj\e[27me\e[27mc\e[27mt\e[27m:\e[27m \e[27ma\e[27mp\e[27mp\e[27m-\e[27mi\e[27mm\e[27ma\e[27mg\e[27me\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\a#Let's use an existing project: app-image\e[K\e[?12l\e[?25h\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;C;\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 8
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 3524
+    content: "\e[7mharbor repository list --projectName=app-image\e[27m"
+  - delay: 299
+    content: "\e[46D\e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m \e[27mr\e[27me\e[27mp\e[27mo\e[27ms\e[27mi\e[27mt\e[27mo\e[27mr\e[27my\e[27m \e[27ml\e[27mi\e[27ms\e[27mt\e[27m \e[27m-\e[27m-\e[27mp\e[27mr\e[27mo\e[27mj\e[27me\e[27mc\e[27mt\e[27mN\e[27ma\e[27mm\e[27me\e[27m=\e[27ma\e[27mp\e[27mp\e[27m-\e[27mi\e[27mm\e[27ma\e[27mg\e[27me\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\aharbor repository list --projectName=app-image\e[K\e[?12l\e[?25h\r\r\n\e]2;java -jar  repository list --projectName=app-image\a\e]1;harbor\a\e]133;C;\a"
+  - delay: 3155
+    content: "[ {\r\n  \"id\" : 26,\r\n  \"projectId\" : 6,\r\n  \"name\" : \"app-image/reviews\",\r\n  \"description\" : null,\r\n  \"artifactCount\" : 1,\r\n  \"pullCount\" : 5,\r\n  \"creationTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"MONDAY\",\r\n    \"dayOfYear\" : 335,\r\n    \"nano\" : 194000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 30,\r\n    \"hour\" : 3,\r\n    \"minute\" : 41,\r\n    \"second\" : 43\r\n  },\r\n  \"updateTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"DECEMBER\",\r\n    \"dayOfWeek\" : \"WEDNESDAY\",\r\n    \"dayOfYear\" : 351,\r\n    \"nano\" : 860000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 12,\r\n    \"dayOfMonth\" : 16,\r\n    \"hour\" : 8,\r\n    \"minute\" : 16,\r\n    \"second\" : 28\r\n  }\r\n}, {\r\n  \"id\" : 25,\r\n  \"projectId\" : 6,\r\n  \"name\" : \"app-image/reviews-source\",\r\n  \"description\" : null,\r\n  \"artifactCount\" : 2,\r\n  \"pullCount\" : 5,\r\n  \"creationTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"MONDAY\",\r\n    \"dayOfYear\" : 335,\r\n    \"nano\" : 102000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 30,\r\n    \"hour\" : 3,\r\n    \"minute\" : 35,\r\n    \"second\" : 52\r\n  },\r\n  \"updateTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"MONDAY\",\r\n    \"dayOfYear\" : 335,\r\n    \"nano\" : 798000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 30,\r\n    \"hour\" : 16,\r\n    \"minute\" : 8,\r\n    \"second\" : 35\r\n  }\r\n}, {\r\n  \"id\" : 23,\r\n  \"projectId\" : 6,\r\n  \"name\" : \"app-image/details-source\",\r\n  \"description\" : null,\r\n  \"artifactCount\" : 2,\r\n  \"pullCount\" : 7,\r\n  \"creationTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"FRIDAY\",\r\n    \"dayOfYear\" : 332,\r\n    \"nano\" : 638000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 27,\r\n    \"hour\" : 7,\r\n    \"minute\" : 57,\r\n    \"second\" : 7\r\n  },\r\n  \"updateTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"MONDAY\",\r\n    \"dayOfYear\" : 335,\r\n    \"nano\" : 783000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 30,\r\n    \"hour\" : 16,\r\n    \"minute\" : 8,\r\n    \"second\" : 36\r\n  }\r\n}, {\r\n  \"id\" : 22,\r\n  \"projectId\" : 6,\r\n  \"name\" : \"app-image/rating\",\r\n  \"description\" : null,\r\n  \"artifactCount\" : 20,\r\n  \"pullCount\" : 117,\r\n  \"creationTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"FRIDAY\",\r\n    \"dayOfYear\" : 332,\r\n    \"nano\" : 130000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 27,\r\n    \"hour\" : 7,\r\n    \"minute\" : 55,\r\n    \"second\" : 57\r\n  },\r\n  \"updateTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"DECEMBER\",\r\n    \"dayOfWeek\" : \"WEDNESDAY\",\r\n    \"dayOfYear\" : 351,\r\n    \"nano\" : 88000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 12,\r\n    \"dayOfMonth\" : 16,\r\n    \"hour\" : 9,\r\n    \"minute\" : 23,\r\n    \"second\" : 19\r\n  }\r\n}, {\r\n  \"id\" : 21,\r\n  \"projectId\" : 6,\r\n  \"name\" : \"app-image/rating-source\",\r\n  \"description\" : null,\r\n  \"artifactCount\" : 9,\r\n  \"pullCount\" : 24,\r\n  \"creationTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"FRIDAY\",\r\n    \"dayOfYear\" : 332,\r\n    \"nano\" : 164000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 27,\r\n    \"hour\" : 7,\r\n    \"minute\" : 54,\r\n    \"second\" : 43\r\n  },\r\n  \"updateTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"DECEMBER\",\r\n    \"dayOfWeek\" : \"WEDNESDAY\",\r\n    \"dayOfYear\" : 351,\r\n    \"nano\" : 13000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 12,\r\n    \"dayOfMonth\" : 16,\r\n    \"hour\" : 9,\r\n    \"minute\" : 23,\r\n    \"second\" : 6\r\n  }\r\n}, {\r\n  \"id\" : 20,\r\n  \"projectId\" : 6,\r\n  \"name\" : \"app-image/petclinic\",\r\n  \"description\" : null,\r\n  \"artifactCount\" : 4,\r\n  \"pullCount\" : 23,\r\n  \"creationTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"THURSDAY\",\r\n    \"dayOfYear\" : 331,\r\n    \"nano\" : 928000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 26,\r\n    \"hour\" : 10,\r\n    \"minute\" : 8,\r\n    \"second\" : 6\r\n  },\r\n  \"updateTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"fixedOffset\" : true,\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ]\r\n      }\r\n    },\r\n    \"month\" : \"JANUARY\",\r\n    \"dayOfWeek\" : \"TUESDAY\",\r\n    \"dayOfYear\" : 5,\r\n    \"nano\" : 703000000,\r\n    \"year\" : 2021,\r\n    \"monthValue\" : 1,\r\n    \"dayOfMonth\" : 5,\r\n    \"hour\" : 2,\r\n    \"minute\" : 28,\r\n    \"second\" : 45\r\n  }\r\n} ]\r\n"
+  - delay: 30
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 8
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[87C\e[0m\e[30m\e[43m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m\e[33m\e[0m\e[33m\e[40m\e[43m\e[30m 3s\e[0m\e[30m\e[43m\e[43m\e[30m \e[0m\e[30m\e[43m\e[43m\e[30m\e[0m\e[30m\e[43m\e[43m\e[30m \e[49m\e[33m\e[0m\e[33m\e[43m\e[30m\e[0m\e[30m\e[43m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 5744
+    content: "\e[7m#That's a few repo in this project! let's see what we have in app-image/petclinic\e[27m"
+  - delay: 303
+    content: "\e[81D\e[27m#\e[27mT\e[27mh\e[27ma\e[27mt\e[27m'\e[27ms\e[27m \e[27ma\e[27m \e[27mf\e[27me\e[27mw\e[27m \e[27mr\e[27me\e[27mp\e[27mo\e[27m \e[27mi\e[27mn\e[27m \e[27mt\e[27mh\e[27mi\e[27ms\e[27m \e[27mp\e[27mr\e[27mo\e[27mj\e[27me\e[27mc\e[27mt\e[27m!\e[27m \e[27ml\e[27me\e[27mt\e[27m'\e[27ms\e[27m \e[27ms\e[27me\e[27me\e[27m \e[27mw\e[27mh\e[27ma\e[27mt\e[27m \e[27mw\e[27me\e[27m \e[27mh\e[27ma\e[27mv\e[27me\e[27m \e[27mi\e[27mn\e[27m \e[27ma\e[27mp\e[27mp\e[27m-\e[27mi\e[27mm\e[27ma\e[27mg\e[27me\e[27m/\e[27mp\e[27me\e[27mt\e[27mc\e[27ml\e[27mi\e[27mn\e[27mi\e[27mc\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\a#That's a few repo in this project! let's see what we have in app-image/petclinic\e[K\e[?12l\e[?25h\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;C;\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 4534
+    content: "\e[7mharbor repository get --projectName=app-image --repositoryName=petclinic\e[27m"
+  - delay: 328
+    content: "\e[72D\e[27mh\e[27ma\e[27mr\e[27mb\e[27mo\e[27mr\e[27m \e[27mr\e[27me\e[27mp\e[27mo\e[27ms\e[27mi\e[27mt\e[27mo\e[27mr\e[27my\e[27m \e[27mg\e[27me\e[27mt\e[27m \e[27m-\e[27m-\e[27mp\e[27mr\e[27mo\e[27mj\e[27me\e[27mc\e[27mt\e[27mN\e[27ma\e[27mm\e[27me\e[27m=\e[27ma\e[27mp\e[27mp\e[27m-\e[27mi\e[27mm\e[27ma\e[27mg\e[27me\e[27m \e[27m-\e[27m-\e[27mr\e[27me\e[27mp\e[27mo\e[27ms\e[27mi\e[27mt\e[27mo\e[27mr\e[27my\e[27mN\e[27ma\e[27mm\e[27me\e[27m=\e[27mp\e[27me\e[27mt\e[27mc\e[27ml\e[27mi\e[27mn\e[27mi\e[27mc\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\aharbor repository get --projectName=app-image --repositoryName=petclinic\e[K\e[?12l\e[?25h\r\r\n\e]2;java -jar  repository get --projectName=app-image --repositoryName=petclinic\a\e]1;harbor\a\e]133;C;\a"
+  - delay: 3192
+    content: "{\r\n  \"id\" : 20,\r\n  \"projectId\" : 6,\r\n  \"name\" : \"app-image/petclinic\",\r\n  \"description\" : null,\r\n  \"artifactCount\" : 4,\r\n  \"pullCount\" : 23,\r\n  \"creationTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ],\r\n        \"fixedOffset\" : true\r\n      }\r\n    },\r\n    \"month\" : \"NOVEMBER\",\r\n    \"dayOfWeek\" : \"THURSDAY\",\r\n    \"dayOfYear\" : 331,\r\n    \"nano\" : 928000000,\r\n    \"year\" : 2020,\r\n    \"monthValue\" : 11,\r\n    \"dayOfMonth\" : 26,\r\n    \"hour\" : 10,\r\n    \"minute\" : 8,\r\n    \"second\" : 6\r\n  },\r\n  \"updateTime\" : {\r\n    \"offset\" : {\r\n      \"totalSeconds\" : 0,\r\n      \"id\" : \"Z\",\r\n      \"rules\" : {\r\n        \"transitions\" : [ ],\r\n        \"transitionRules\" : [ ],\r\n        \"fixedOffset\" : true\r\n      }\r\n    },\r\n    \"month\" : \"JANUARY\",\r\n    \"dayOfWeek\" : \"TUESDAY\",\r\n    \"dayOfYear\" : 5,\r\n    \"nano\" : 703000000,\r\n    \"year\" : 2021,\r\n    \"monthValue\" : 1,\r\n    \"dayOfMonth\" : 5,\r\n    \"hour\" : 2,\r\n    \"minute\" : 28,\r\n    \"second\" : 45\r\n  }\r\n}\r\n"
+  - delay: 32
+    content: "\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 7
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[87C\e[0m\e[30m\e[43m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m\e[33m\e[0m\e[33m\e[40m\e[43m\e[30m 3s\e[0m\e[30m\e[43m\e[43m\e[30m \e[0m\e[30m\e[43m\e[43m\e[30m\e[0m\e[30m\e[43m\e[43m\e[30m \e[49m\e[33m\e[0m\e[33m\e[43m\e[30m\e[0m\e[30m\e[43m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 2612
+    content: "\e[7m#Not much to see because we were querying the repo itself\e[27m"
+  - delay: 355
+    content: "\e[57D\e[27m#\e[27mN\e[27mo\e[27mt\e[27m \e[27mm\e[27mu\e[27mc\e[27mh\e[27m \e[27mt\e[27mo\e[27m \e[27ms\e[27me\e[27me\e[27m \e[27mb\e[27me\e[27mc\e[27ma\e[27mu\e[27ms\e[27me\e[27m \e[27mw\e[27me\e[27m \e[27mw\e[27me\e[27mr\e[27me\e[27m \e[27mq\e[27mu\e[27me\e[27mr\e[27my\e[27mi\e[27mn\e[27mg\e[27m \e[27mt\e[27mh\e[27me\e[27m \e[27mr\e[27me\e[27mp\e[27mo\e[27m \e[27mi\e[27mt\e[27ms\e[27me\e[27ml\e[27mf\e[?1l\e>\e[?25l\r\n\e[A\e[?25l\e[?2004l\r\r\e[0m\e[27m\e[24m\e[J\e]133;A\a\e[0m\e[49m\e[27m\e[24m\e[38;5;76m❯\e[0m\e[38;5;76m\e[49m\e[39m\e[27m\e[24m \e]133;B\a#Not much to see because we were querying the repo itself\e[K\e[?12l\e[?25h\r\r\n\e[1m\e[7m%\e[27m\e[1m\e[0m                                                                                                                               \r \r\e]2;hlam@hinl-a01: /private/tmp/demo\a\e]1;..vate/tmp/demo\a\e]133;C;\a\e]133;D;0\a\e]1337;RemoteHost=hlam@hinl-a01.vmware.com\a\e]1337;CurrentDir=/private/tmp/demo\a"
+  - delay: 9
+    content: "\r\e[0m\e[27m\e[24m\e[J\e[0m\e[49m\e[39m\e]133;A\a\e[0m\e[49m\e[37m\e[0m\e[37m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m\e[1m\e[38;5;232m\e[47m\e[0m\e[38;5;232m\e[47m\e[47m\e[38;5;232m \e[0m\e[38;5;232m\e[47m\e[44m\e[37m\e[0m\e[37m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m /\e[1m\e[38;5;254m\e[44m\e[38;5;255mprivate\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m/tmp/\e[1m\e[38;5;254m\e[44m\e[38;5;255mdemo\e[0m\e[38;5;255m\e[44m\e[44m\e[38;5;254m\e[0m\e[38;5;254m\e[44m\e[44m\e[38;5;254m \e[0m\e[38;5;254m\e[44m\e[49m\e[34m\e[0m\e[34m\e[49m\e[39m \e[0m\e[49m\e[39m\e]133;B\a\e[K\e[94C\e[0m\e[49m\e[30m\e[0m\e[30m\e[40m\e[32m \e[0m\e[32m\e[40m\e[40m\e[32m✔\e[0m\e[32m\e[40m\e[40m\e[32m \e[49m\e[30m\e[0m\e[30m\e[40m\e[32m\e[0m\e[32m\e[40m\e[49m\e[39m\e[99D\e[?1h\e=\e[?2004h"
+  - delay: 2452
+    content: "\e[?2004l\r\r\n"

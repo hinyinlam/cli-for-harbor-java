@@ -79,7 +79,7 @@ public class HarborCliApplication {
             return specBuilder.required(false).description(paramName).arity("0..1").defaultValue(null).type(paramType).build();
         }
         if(!paramType.getPackageName().equals("java.lang")){ //non-java lang types:
-            return specBuilder.required(false).description("Complex kind - Use .yaml file here").arity("0..1").type(String.class).build();
+            return specBuilder.required(false).description("Complex kind - Use .json/.yaml file here").arity("0..1").type(String.class).build();
         }
         return specBuilder.required(false).description(paramName).arity("0..1").type(paramType).build();
     }

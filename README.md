@@ -1,4 +1,5 @@
-# Command line for Harbor
+# Unofficial command line for Harbor
+
 ## How to build?
 This CLI depends on `harbor-client-java` - following instruction to `mvn install` in [Harbor Java Client](https://github.com/hinyinlam-pivotal/harbor-client-java)
 
@@ -23,6 +24,8 @@ In future, will compile directly to OS dependent native image so you *will* not 
 Example:
 
 `harbor login --username myuser --password ASafePassword --api demo.goharbor.io`
+
+<p align="center"><img src="/doc/login-demo.gif?raw=true"/></p>
 
 ### Project list:
 `harbor project list`

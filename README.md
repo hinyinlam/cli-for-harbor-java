@@ -1,5 +1,6 @@
 # Unofficial command line for Harbor
 This is not yet an offical project for [Harbor open source Registry](https://goharbor.io/)
+<p align="center"><img src="/doc/cli-logo.gif?raw=true"/></p>
 
 ## How to use
 Download the cli jar file directly in github:

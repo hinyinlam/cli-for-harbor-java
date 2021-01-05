@@ -1,5 +1,6 @@
 package io.goharbor.util.harborcli;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.goharbor.client.openapi.ApiClient;
 import io.goharbor.util.harborcli.auth.AuthHelper;
@@ -95,14 +96,19 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
             }
 
             Object result = targetMethod.invoke(apiInstance, executeParam); //TODO: Adding dynamically generated parameter list
+
             if(result!=null){
-                System.out.println(result); //TODO: cast the result back to the correct type (or can it?)
-                System.out.println(targetMethod.getReturnType());
+                ObjectMapper mapper = new ObjectMapper();
+                System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(result));
+                //System.out.println(result); //TODO: cast the result back to the correct type (or can it?)
+                //System.out.println(targetMethod.getReturnType());
             }
             return 0;
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return -1;

@@ -4,18 +4,24 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.goharbor.client.openapi.ApiClient;
 import io.goharbor.client.openapi.ApiException;
-import io.goharbor.client.openapi.apis.ProjectApi;
-import io.goharbor.client.openapi.models.Project;
+//import io.goharbor.client.openapi.apis.ProjectApi;
+//import io.goharbor.client.openapi.models.Project;
+import io.goharbor.util.harborcli.CommandDispatcherService;
+import io.goharbor.util.harborcli.OpenAPIParserService;
 import io.goharbor.util.harborcli.config.BasicAuth;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import picocli.CommandLine;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -27,6 +33,12 @@ public class AuthHelper {
 
     @Getter
     private ApiClient apiClient;
+
+    @Autowired
+    private OpenAPIParserService apiParserService;
+
+    @Autowired
+    private CommandDispatcherService cmdDispatcherSvc;
 
     public AuthHelper(){
         apiClient = loadBasicAuthentication(); //load existing API Client
@@ -95,13 +107,55 @@ public class AuthHelper {
         return -1;
     }
 
-    private void tryLogin(String username, String password, String api) throws ApiException{
+
+    private boolean validateLoginInfo(ApiClient tempApiClient){
+        try { //See if the API for trying login exists or not
+            Object apiClass = cmdDispatcherSvc.getApiClassInstanceWithAPIClient("ProjectApi", false, tempApiClient);
+            Method method = apiParserService.getMethodByAPIAndMethodName("ProjectApi", "listProjects");
+            if (method != null && apiClass != null) {
+                Parameter[] parameters = method.getParameters();
+                Object[] emptyApicall = new Object[parameters.length];
+                method.invoke(apiClass, emptyApicall);
+                return true;
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        //Trying legacy API endpoint
+        try { //See if the API for trying login exists or not
+            Object apiClass = cmdDispatcherSvc.getApiClassInstanceWithAPIClient("ProductsApi", false, tempApiClient);
+            Method method = apiParserService.getMethodByAPIAndMethodName("ProductsApi", "usersSearchGet");
+            if (method != null && apiClass != null) {
+                Parameter[] parameters = method.getParameters();
+                Object[] emptyApicall = new Object[parameters.length];
+                emptyApicall[0]="unrealusername";
+                method.invoke(apiClass, emptyApicall);
+                return true;
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private void tryLogin(String username, String password, String api) throws ApiException {
         ApiClient tryLoginClient = new ApiClient();
         tryLoginClient.setUsername(username);
         tryLoginClient.setPassword(password);
         tryLoginClient.setBasePath(api);
-        ProjectApi projectApi = new ProjectApi(tryLoginClient);
-        List<Project> projects = projectApi.listProjects(null,1l,1l,null,null,null);
+
+        boolean success = validateLoginInfo(tryLoginClient);
+        if(!success){
+            System.out.println("Login information incorrect");
+            System.exit(-1);
+        }
+
+//        ProjectApi projectApi = new ProjectApi(tryLoginClient);
+//        List<Project> projects = projectApi.listProjects(null,1l,1l,null,null,null);
         //At this point, no exception has thrown, thus login is success
         System.out.println("Login success");
         saveBasicAuthentication(username, password,api);

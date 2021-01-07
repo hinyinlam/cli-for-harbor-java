@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class OpenAPIParserService {
@@ -22,10 +23,35 @@ public class OpenAPIParserService {
 
     public OpenAPIParserService() throws IOException {
         apiMethods = retreiveAllAPIMethods("io.goharbor.client.openapi.apis");
+        models = retreiveAllModels("io.goharbor.client.openapi.models");
     }
 
     @Getter
     private Map<String, List<Method>> apiMethods;
+
+    public Method getMethodByAPIAndMethodName(String apiName, String methodName){
+        List<Method> methods = apiMethods.get(apiName);
+        if(methods==null){
+            return null;
+        }
+        return methods.stream().filter(method -> method.getName().equals(methodName)).limit(1).collect(Collectors.toList()).get(0);
+    }
+
+    @Getter
+    private Map<String, Class<?>> models;
+
+    private Map<String, Class<?>> retreiveAllModels(String modelPackage) throws IOException {
+        Map<String, Class<?>> models = new HashMap<>();
+
+        ClassPath classPath = ClassPath.from(Thread.currentThread().getContextClassLoader());
+        Set<ClassPath.ClassInfo> classInfos = classPath.getTopLevelClasses(modelPackage);
+
+        for(ClassPath.ClassInfo info: classInfos) {
+            Class<?> model = info.load();
+            models.put(model.getSimpleName(),model);
+        }
+        return models;
+    }
 
     private Map<String, List<Method>> retreiveAllAPIMethods(String apisPackage) throws IOException {
         Map<String, List<Method>> apiMethod = new HashMap<>();
@@ -83,5 +109,9 @@ public class OpenAPIParserService {
 
     public List<Method> getMethodsByApiName(String apiKey) {
         return this.apiMethods.get(apiKey);
+    }
+
+    public Class<?> getModelByName(String modelName) {
+        return models.get(modelName);
     }
 }

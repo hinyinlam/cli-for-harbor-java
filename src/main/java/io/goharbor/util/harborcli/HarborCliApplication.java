@@ -51,6 +51,9 @@ public class HarborCliApplication {
             //Remember the login cmd that we manually created
             mainCommands = addAuthSubCommand(mainCommands);
 
+            //Adding model data dump for easy consume
+            mainCommands = addDumpModelExample(mainCommands);
+
             CommandSpec spec = CommandSpec.create()
                     .name("harbor")
                     .usageMessage(new UsageMessageSpec().description("CLI for Harbor - https://github.com/goharbor/harbor"))
@@ -97,6 +100,9 @@ public class HarborCliApplication {
             for(int i=0; i< params.length; i++){
                 Class<?> paramType = params[i].getType();
                 String paramName = paramNames[i];
+                if(paramName.equals("version")||paramName.equals("help")){
+                    methodSubcmd = methodSubcmd.mixinStandardHelpOptions(false); //avoid --version or --help conflict
+                }
                 OptionSpec optionSpec = getSubcmdOptionSpec(paramType,paramName);
                 methodSubcmd = methodSubcmd.addOption(optionSpec);
             }
@@ -126,6 +132,16 @@ public class HarborCliApplication {
                 .usageMessage(new UsageMessageSpec().description("Logout by deleting locally saved auth config"));
         mainCommands.add(logoutSpec);
 
+        return mainCommands;
+    }
+
+    private static List<CommandSpec> addDumpModelExample(List<CommandSpec> mainCommands){
+        CommandSpec modelExample = CommandSpec.create()
+                .name("modelexample")
+                .addOption(OptionSpec.builder("-m").paramLabel("MODELNAME").required(true).arity("1").description("Model name in *Camel Case* eg: User / ChartVersion").type(String.class).build())
+                .usageMessage(new UsageMessageSpec().description("Dump data Model for any complex type"));
+        modelExample.mixinStandardHelpOptions(true);
+        mainCommands.add(modelExample);
         return mainCommands;
     }
 

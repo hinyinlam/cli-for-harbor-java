@@ -32,6 +32,9 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
     @Autowired
     AuthHelper authHelper;
 
+    @Autowired
+    ModelHelper modelHelper;
+
     @Override
     public int execute(CommandLine.ParseResult parseResult) throws CommandLine.ExecutionException, CommandLine.ParameterException {
         Integer helpExitCode = CommandLine.executeHelpRequest(parseResult);
@@ -51,6 +54,9 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
             authHelper.logout();
             return 0; //success exit normally
         }
+        if(apiName.equals("modelexample")){
+            return modelHelper.dump(api);
+        }
 
         //Let's call the real API:
         return executeAPICommand(api);
@@ -65,7 +71,7 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
         CommandLine.ParseResult actionParseResult = api.subcommands().get(0);
         String actionName = actionParseResult.commandSpec().name();
 
-        Object apiInstance = getApiClassInstance(apiClassName); //effectively: apiInstance = new ProjectApi(apiClient);
+        Object apiInstance = getApiClassInstance(apiClassName, true); //effectively: apiInstance = new ProjectApi(apiClient);
         if(apiInstance==null){
             return -1;
         }
@@ -146,29 +152,31 @@ public class CommandDispatcherService implements CommandLine.IExecutionStrategy 
         return apiKey;
     }
 
-    private Object getApiClassInstance(String apiKey) {
-        ApiClient apiClient = authHelper.getApiClient();
-        if(apiClient==null){
-            System.out.println("Please login using `harbor login` command");
-            return null;
-        }
-
+    public Object getApiClassInstanceWithAPIClient(String apiKey, boolean printException, ApiClient apiClient){
         try {
             Class classRef = Class.forName("io.goharbor.client.openapi.apis."+ apiKey);
             Constructor constructor = classRef.getConstructor(ApiClient.class);
             Object apiInstance = constructor.newInstance(apiClient);
             return apiInstance;
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            if(printException){e.printStackTrace();}
         } catch (InstantiationException e) {
-            e.printStackTrace();
+            if(printException){e.printStackTrace();}
         } catch (InvocationTargetException e) {
-            e.printStackTrace();
+            if(printException){e.printStackTrace();}
         } catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            if(printException){e.printStackTrace();}
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            if(printException){e.printStackTrace();}
         }
         return null;
+    }
+    public Object getApiClassInstance(String apiKey, boolean printException) {
+        ApiClient apiClient = authHelper.getApiClient();
+        if(apiClient==null){
+            System.out.println("Please login using `harbor login` command");
+            return null;
+        }
+        return getApiClassInstanceWithAPIClient(apiKey,printException,apiClient);
     }
 }

@@ -1,4 +1,5 @@
-# Unofficial command line for Harbor
+# CLI for Harbor
+## An unofficial command line for Harbor
 This is not yet an offical project for [Harbor open source Registry](https://goharbor.io/)
 <p align="center"><img src="/doc/cli-logo.gif?raw=true"/></p>
 

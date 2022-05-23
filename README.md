@@ -1,3 +1,15 @@
+
+# Archived Repo
+## This repo has been moved to Golang version:
+## https://github.com/hinyinlam/cli-for-harbor
+
+## From now on this repo is read-only and for historical reference.
+
+---
+
+
+
+
 # CLI for Harbor
 ## An unofficial command line for Harbor
 This is not yet an offical project for [Harbor open source Registry](https://goharbor.io/)
